@@ -1,0 +1,9 @@
+{
+  "verbose": true,
+  "ignore": ["*.test.js", "*.spec.js"],
+  "watch": ["*.js", "routes/*.js", "controllers/*.js", "models/*.js"],
+  "delay": "1000",
+  "events": {
+    "restart": "echo 'Restarting server...'"
+  }
+} 
