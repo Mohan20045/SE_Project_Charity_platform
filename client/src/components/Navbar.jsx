@@ -15,12 +15,24 @@ export default function Navbar() {
   const isAuthenticated = !!user;
   const isAdmin = user?.isAdmin === true;
 
-  const navigation = [
+  // Determine if current route is under admin
+  const isAdminRoute = location.pathname.startsWith('/admin');
+
+  // Navigation links for donor
+  const donorNavigation = [
     { name: 'Home', href: '/' },
     { name: 'Organizations', href: '/organizations' },
     { name: 'Donations', href: '/donations' },
     { name: 'Feedback', href: '/feedback' },
   ];
+
+  // Navigation links for admin (can be empty or customized)
+  const adminNavigation = [
+    // Admin Dashboard link is already rendered conditionally below, so no need to add here
+  ];
+
+  // Choose navigation based on route
+  const navigation = isAdminRoute ? adminNavigation : donorNavigation;
 
   const handleLogout = () => {
     localStorage.removeItem('token');
